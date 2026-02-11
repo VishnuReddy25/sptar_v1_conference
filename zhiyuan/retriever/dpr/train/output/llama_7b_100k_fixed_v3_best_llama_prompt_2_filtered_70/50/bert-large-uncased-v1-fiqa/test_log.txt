@@ -1,0 +1,95 @@
+2025-11-17 01:37:47 - Use pytorch device_name: cuda:0
+2025-11-17 01:37:47 - Load pretrained SentenceTransformer: /home/aiml_user/vishnu/sptar_v1/zhiyuan/retriever/dpr/train/output/llama_7b_100k_fixed_v3_best_llama_prompt_2_filtered_70/50/bert-large-uncased-v1-fiqa
+2025-11-17 01:37:49 - Loading Corpus...
+2025-11-17 01:37:50 - Loaded 57638 TEST Documents.
+2025-11-17 01:37:50 - Doc Example: {'text': "I'm not saying I don't like the idea of on-the-job training too, but you can't expect the company to do that. Training workers is not their job - they're building software. Perhaps educational systems in the U.S. (or their students) should worry a little about getting marketable skills in exchange for their massive investment in education, rather than getting out with thousands in student debt and then complaining that they aren't qualified to do anything.", 'title': ''}
+2025-11-17 01:37:50 - Loading Queries...
+2025-11-17 01:37:50 - Loaded 648 TEST Queries.
+2025-11-17 01:37:50 - Query Example: How to deposit a cheque issued to an associate in my business into my business account?
+2025-11-17 01:37:50 - Encoding Queries...
+2025-11-17 01:37:52 - Sorting Corpus by document length (Longest first)...
+2025-11-17 01:37:52 - Encoding Corpus in batches... Warning: This might take a while!
+2025-11-17 01:37:52 - Scoring Function: Cosine Similarity (cos_sim)
+2025-11-17 01:37:52 - Encoding Batch 1/1...
+2025-11-17 02:00:11 - Retriever evaluation for dataset fiqa
+2025-11-17 02:00:11 - For evaluation, we ignore identical query and document ids (default), please explicitly set ``ignore_identical_ids=False`` to ignore this.
+2025-11-17 02:00:11 - 
+
+2025-11-17 02:00:11 - NDCG@1: 0.2145
+2025-11-17 02:00:11 - NDCG@3: 0.2022
+2025-11-17 02:00:11 - NDCG@5: 0.2081
+2025-11-17 02:00:11 - NDCG@10: 0.2344
+2025-11-17 02:00:11 - NDCG@100: 0.3086
+2025-11-17 02:00:11 - NDCG@300: 0.3306
+2025-11-17 02:00:11 - NDCG@500: 0.3393
+2025-11-17 02:00:11 - NDCG@1000: 0.3493
+2025-11-17 02:00:11 - 
+
+2025-11-17 02:00:11 - MAP@1: 0.1018
+2025-11-17 02:00:11 - MAP@3: 0.1498
+2025-11-17 02:00:11 - MAP@5: 0.1608
+2025-11-17 02:00:11 - MAP@10: 0.1761
+2025-11-17 02:00:11 - MAP@100: 0.1931
+2025-11-17 02:00:11 - MAP@300: 0.1946
+2025-11-17 02:00:11 - MAP@500: 0.1950
+2025-11-17 02:00:11 - MAP@1000: 0.1952
+2025-11-17 02:00:11 - 
+
+2025-11-17 02:00:11 - Recall@1: 0.1018
+2025-11-17 02:00:11 - Recall@3: 0.1861
+2025-11-17 02:00:11 - Recall@5: 0.2225
+2025-11-17 02:00:11 - Recall@10: 0.2992
+2025-11-17 02:00:11 - Recall@100: 0.5825
+2025-11-17 02:00:11 - Recall@300: 0.7033
+2025-11-17 02:00:11 - Recall@500: 0.7608
+2025-11-17 02:00:11 - Recall@1000: 0.8314
+2025-11-17 02:00:11 - 
+
+2025-11-17 02:00:11 - P@1: 0.2145
+2025-11-17 02:00:11 - P@3: 0.1379
+2025-11-17 02:00:11 - P@5: 0.1009
+2025-11-17 02:00:11 - P@10: 0.0691
+2025-11-17 02:00:11 - P@100: 0.0143
+2025-11-17 02:00:11 - P@300: 0.0060
+2025-11-17 02:00:11 - P@500: 0.0039
+2025-11-17 02:00:11 - P@1000: 0.0022
+2025-11-17 02:00:11 - 
+
+2025-11-17 02:00:11 - MRR@1: 0.2145
+2025-11-17 02:00:11 - MRR@3: 0.2600
+2025-11-17 02:00:11 - MRR@5: 0.2722
+2025-11-17 02:00:11 - MRR@10: 0.2857
+2025-11-17 02:00:11 - MRR@100: 0.2979
+2025-11-17 02:00:11 - MRR@300: 0.2984
+2025-11-17 02:00:11 - MRR@500: 0.2984
+2025-11-17 02:00:11 - MRR@1000: 0.2985
+2025-11-17 02:00:11 - 
+
+2025-11-17 02:00:11 - NDCG@1: 0.2145
+2025-11-17 02:00:11 - NDCG@3: 0.2022
+2025-11-17 02:00:11 - NDCG@5: 0.2081
+2025-11-17 02:00:11 - NDCG@10: 0.2344
+2025-11-17 02:00:11 - NDCG@100: 0.3086
+2025-11-17 02:00:11 - NDCG@300: 0.3306
+2025-11-17 02:00:11 - NDCG@500: 0.3393
+2025-11-17 02:00:11 - NDCG@1000: 0.3493
+2025-11-17 02:00:11 - 
+
+2025-11-17 02:00:11 - MAP@1: 0.1018
+2025-11-17 02:00:11 - MAP@3: 0.1498
+2025-11-17 02:00:11 - MAP@5: 0.1608
+2025-11-17 02:00:11 - MAP@10: 0.1761
+2025-11-17 02:00:11 - MAP@100: 0.1931
+2025-11-17 02:00:11 - MAP@300: 0.1946
+2025-11-17 02:00:11 - MAP@500: 0.1950
+2025-11-17 02:00:11 - MAP@1000: 0.1952
+2025-11-17 02:00:11 - 
+
+2025-11-17 02:00:11 - Recall@1: 0.1018
+2025-11-17 02:00:11 - Recall@3: 0.1861
+2025-11-17 02:00:11 - Recall@5: 0.2225
+2025-11-17 02:00:11 - Recall@10: 0.2992
+2025-11-17 02:00:11 - Recall@100: 0.5825
+2025-11-17 02:00:11 - Recall@300: 0.7033
+2025-11-17 02:00:11 - Recall@500: 0.7608
+2025-11-17 02:00:11 - Recall@1000: 0.8314

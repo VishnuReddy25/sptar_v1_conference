@@ -34,14 +34,15 @@ parser.add_argument('--exp_name', type=str, default="no_aug")
 args = parser.parse_args()
 
 # Paths
-model_name = "bert-base-uncased"
+# model_name = "bert-base-uncased"
+model_name = "bert-large-uncased"
 model_save_path = os.path.join(
     pathlib.Path(__file__).parent.parent.absolute(),
     "train", "output", args.exp_name, str(args.train_num),
     f"{model_name}-{args.dpr_v}-{args.dataset_name}"
 )
 os.makedirs(model_save_path, exist_ok=True)
-
+model_save_path = r"/home/aiml_user/vishnu/sptar_v1/zhiyuan/retriever/dpr/train/output/llama_7b_100k_fixed_v3_best_llama_prompt_2_filtered_70/50/bert-large-uncased-v1-fiqa"
 # Setup logging
 log_file = join(model_save_path, "test_log.txt")
 handler = logging.FileHandler(log_file)
@@ -60,7 +61,7 @@ beir_dir = join(raw_dir, "beir")
 # Load model
 model = DRES(models.SentenceBERT(model_save_path), batch_size=256, corpus_chunk_size=100000)
 retriever = EvaluateRetrieval(model, k_values=[1, 3, 5, 10, 100, 300, 500, 1000], score_function="cos_sim")
-
+print(model)
 # Load corpus and queries
 if args.dataset_name == "msmarco":
     corpus, queries, qrels = GenericDataLoader(join(beir_dir, args.dataset_name)).load(split="dev")

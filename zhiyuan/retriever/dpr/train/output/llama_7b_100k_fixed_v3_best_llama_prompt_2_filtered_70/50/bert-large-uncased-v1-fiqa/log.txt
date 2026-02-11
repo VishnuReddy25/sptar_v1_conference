@@ -1,0 +1,138 @@
+2025-11-16 11:43:19 - Loading Corpus...
+2025-11-16 11:43:19 - Loaded 57638 Documents.
+2025-11-16 11:43:19 - Doc Example: {'text': "I'm not saying I don't like the idea of on-the-job training too, but you can't expect the company to do that. Training workers is not their job - they're building software. Perhaps educational systems in the U.S. (or their students) should worry a little about getting marketable skills in exchange for their massive investment in education, rather than getting out with thousands in student debt and then complaining that they aren't qualified to do anything.", 'title': ''}
+2025-11-16 11:43:19 - Loading Golden Queries...
+2025-11-16 11:43:19 - Loading Weak Queries...
+2025-11-16 11:43:19 - Loading Golden Qrels...
+2025-11-16 11:43:19 - Loading Weak Qrels...
+2025-11-16 11:43:19 - Loaded 24558 Golden+Weak Queries.
+2025-11-16 11:43:19 - Golden+Weak Query Example: Sales Tax Licence/Permit - When is it required and how can I make a use of it as a non-US resident selling in USA?
+2025-11-16 11:43:19 - Loading Corpus...
+2025-11-16 11:43:20 - Loaded 57638 Documents.
+2025-11-16 11:43:20 - Doc Example: {'text': "I'm not saying I don't like the idea of on-the-job training too, but you can't expect the company to do that. Training workers is not their job - they're building software. Perhaps educational systems in the U.S. (or their students) should worry a little about getting marketable skills in exchange for their massive investment in education, rather than getting out with thousands in student debt and then complaining that they aren't qualified to do anything.", 'title': ''}
+2025-11-16 11:43:20 - Loading Queries...
+2025-11-16 11:43:20 - Loaded 500 Queries.
+2025-11-16 11:43:20 - Query Example: Claiming business expenses for a business with no income
+2025-11-16 11:43:26 - Loaded 24894 training pairs.
+2025-11-16 11:43:26 - dev set contains 57638 documents and 500 queries
+2025-11-16 11:43:26 - Starting to Train...
+2025-11-16 11:48:38 - Loading Corpus...
+2025-11-16 11:48:38 - Loaded 57638 Documents.
+2025-11-16 11:48:38 - Doc Example: {'text': "I'm not saying I don't like the idea of on-the-job training too, but you can't expect the company to do that. Training workers is not their job - they're building software. Perhaps educational systems in the U.S. (or their students) should worry a little about getting marketable skills in exchange for their massive investment in education, rather than getting out with thousands in student debt and then complaining that they aren't qualified to do anything.", 'title': ''}
+2025-11-16 11:48:38 - Loading Golden Queries...
+2025-11-16 11:48:38 - Loading Weak Queries...
+2025-11-16 11:48:38 - Loading Golden Qrels...
+2025-11-16 11:48:38 - Loading Weak Qrels...
+2025-11-16 11:48:38 - Loaded 24558 Golden+Weak Queries.
+2025-11-16 11:48:38 - Golden+Weak Query Example: Sales Tax Licence/Permit - When is it required and how can I make a use of it as a non-US resident selling in USA?
+2025-11-16 11:48:38 - Loading Corpus...
+2025-11-16 11:48:38 - Loaded 57638 Documents.
+2025-11-16 11:48:38 - Doc Example: {'text': "I'm not saying I don't like the idea of on-the-job training too, but you can't expect the company to do that. Training workers is not their job - they're building software. Perhaps educational systems in the U.S. (or their students) should worry a little about getting marketable skills in exchange for their massive investment in education, rather than getting out with thousands in student debt and then complaining that they aren't qualified to do anything.", 'title': ''}
+2025-11-16 11:48:38 - Loading Queries...
+2025-11-16 11:48:38 - Loaded 500 Queries.
+2025-11-16 11:48:38 - Query Example: Claiming business expenses for a business with no income
+2025-11-16 11:48:43 - Loaded 24894 training pairs.
+2025-11-16 11:48:43 - dev set contains 57638 documents and 500 queries
+2025-11-16 11:48:43 - Starting to Train...
+2025-11-16 12:03:03 - Information Retrieval Evaluation of the model on the dev dataset in epoch 1.0 after 1556 steps:
+2025-11-16 12:07:18 - Queries: 500
+2025-11-16 12:07:18 - Corpus: 57638
+
+2025-11-16 12:07:18 - Score-Function: cosine
+2025-11-16 12:07:18 - Accuracy@1: 20.80%
+2025-11-16 12:07:18 - Accuracy@3: 30.40%
+2025-11-16 12:07:18 - Accuracy@5: 35.80%
+2025-11-16 12:07:18 - Accuracy@10: 43.60%
+2025-11-16 12:07:18 - Precision@1: 20.80%
+2025-11-16 12:07:18 - Precision@3: 11.47%
+2025-11-16 12:07:18 - Precision@5: 8.84%
+2025-11-16 12:07:18 - Precision@10: 6.04%
+2025-11-16 12:07:18 - Recall@1: 11.60%
+2025-11-16 12:07:18 - Recall@3: 18.27%
+2025-11-16 12:07:18 - Recall@5: 21.79%
+2025-11-16 12:07:18 - Recall@10: 27.81%
+2025-11-16 12:07:18 - MRR@10: 0.2710
+2025-11-16 12:07:18 - NDCG@10: 0.2225
+2025-11-16 12:07:18 - MAP@100: 0.1868
+2025-11-16 12:07:18 - Save model to /home/aiml_user/vishnu/sptar_v1/zhiyuan/retriever/dpr/train/output/llama_7b_100k_fixed_v3_best_llama_prompt_2_filtered_70/50/bert-large-uncased-v1-fiqa
+2025-11-16 12:21:58 - Information Retrieval Evaluation of the model on the dev dataset in epoch 2.0 after 3112 steps:
+2025-11-16 12:26:13 - Queries: 500
+2025-11-16 12:26:13 - Corpus: 57638
+
+2025-11-16 12:26:13 - Score-Function: cosine
+2025-11-16 12:26:13 - Accuracy@1: 24.80%
+2025-11-16 12:26:13 - Accuracy@3: 34.80%
+2025-11-16 12:26:13 - Accuracy@5: 39.00%
+2025-11-16 12:26:13 - Accuracy@10: 46.60%
+2025-11-16 12:26:13 - Precision@1: 24.80%
+2025-11-16 12:26:13 - Precision@3: 13.73%
+2025-11-16 12:26:13 - Precision@5: 10.20%
+2025-11-16 12:26:13 - Precision@10: 6.74%
+2025-11-16 12:26:13 - Recall@1: 14.06%
+2025-11-16 12:26:13 - Recall@3: 20.57%
+2025-11-16 12:26:13 - Recall@5: 23.87%
+2025-11-16 12:26:13 - Recall@10: 30.13%
+2025-11-16 12:26:13 - MRR@10: 0.3130
+2025-11-16 12:26:13 - NDCG@10: 0.2545
+2025-11-16 12:26:13 - MAP@100: 0.2169
+2025-11-16 12:26:13 - Save model to /home/aiml_user/vishnu/sptar_v1/zhiyuan/retriever/dpr/train/output/llama_7b_100k_fixed_v3_best_llama_prompt_2_filtered_70/50/bert-large-uncased-v1-fiqa
+2025-11-16 12:39:16 - Loading Corpus...
+2025-11-16 12:39:16 - Loaded 57638 Documents.
+2025-11-16 12:39:16 - Doc Example: {'text': "I'm not saying I don't like the idea of on-the-job training too, but you can't expect the company to do that. Training workers is not their job - they're building software. Perhaps educational systems in the U.S. (or their students) should worry a little about getting marketable skills in exchange for their massive investment in education, rather than getting out with thousands in student debt and then complaining that they aren't qualified to do anything.", 'title': ''}
+2025-11-16 12:39:16 - Loading Golden Queries...
+2025-11-16 12:39:16 - Loading Weak Queries...
+2025-11-16 12:39:16 - Loading Golden Qrels...
+2025-11-16 12:39:16 - Loading Weak Qrels...
+2025-11-16 12:39:16 - Loaded 24558 Golden+Weak Queries.
+2025-11-16 12:39:16 - Golden+Weak Query Example: Sales Tax Licence/Permit - When is it required and how can I make a use of it as a non-US resident selling in USA?
+2025-11-16 12:39:16 - Loading Corpus...
+2025-11-16 12:39:16 - Loaded 57638 Documents.
+2025-11-16 12:39:16 - Doc Example: {'text': "I'm not saying I don't like the idea of on-the-job training too, but you can't expect the company to do that. Training workers is not their job - they're building software. Perhaps educational systems in the U.S. (or their students) should worry a little about getting marketable skills in exchange for their massive investment in education, rather than getting out with thousands in student debt and then complaining that they aren't qualified to do anything.", 'title': ''}
+2025-11-16 12:39:16 - Loading Queries...
+2025-11-16 12:39:16 - Loaded 500 Queries.
+2025-11-16 12:39:16 - Query Example: Claiming business expenses for a business with no income
+2025-11-16 12:39:23 - Loaded 24894 training pairs.
+2025-11-16 12:39:23 - dev set contains 57638 documents and 500 queries
+2025-11-16 12:39:23 - Starting to Train...
+2025-11-16 14:31:34 - Information Retrieval Evaluation of the model on the dev dataset in epoch 1.0 after 778 steps:
+2025-11-16 16:01:31 - Queries: 500
+2025-11-16 16:01:31 - Corpus: 57638
+
+2025-11-16 16:01:31 - Score-Function: cosine
+2025-11-16 16:01:31 - Accuracy@1: 21.00%
+2025-11-16 16:01:31 - Accuracy@3: 33.20%
+2025-11-16 16:01:31 - Accuracy@5: 38.40%
+2025-11-16 16:01:31 - Accuracy@10: 49.40%
+2025-11-16 16:01:31 - Precision@1: 21.00%
+2025-11-16 16:01:31 - Precision@3: 13.00%
+2025-11-16 16:01:31 - Precision@5: 9.80%
+2025-11-16 16:01:31 - Precision@10: 7.12%
+2025-11-16 16:01:31 - Recall@1: 11.17%
+2025-11-16 16:01:31 - Recall@3: 18.53%
+2025-11-16 16:01:31 - Recall@5: 22.79%
+2025-11-16 16:01:31 - Recall@10: 31.52%
+2025-11-16 16:01:31 - MRR@10: 0.2902
+2025-11-16 16:01:31 - NDCG@10: 0.2420
+2025-11-16 16:01:31 - MAP@100: 0.1951
+2025-11-16 16:01:31 - Save model to /home/aiml_user/vishnu/sptar_v1/zhiyuan/retriever/dpr/train/output/llama_7b_100k_fixed_v3_best_llama_prompt_2_filtered_70/50/bert-large-uncased-v1-fiqa
+2025-11-16 18:05:16 - Information Retrieval Evaluation of the model on the dev dataset in epoch 2.0 after 1556 steps:
+2025-11-16 19:34:57 - Queries: 500
+2025-11-16 19:34:57 - Corpus: 57638
+
+2025-11-16 19:34:57 - Score-Function: cosine
+2025-11-16 19:34:57 - Accuracy@1: 21.20%
+2025-11-16 19:34:57 - Accuracy@3: 35.40%
+2025-11-16 19:34:57 - Accuracy@5: 42.20%
+2025-11-16 19:34:57 - Accuracy@10: 51.80%
+2025-11-16 19:34:57 - Precision@1: 21.20%
+2025-11-16 19:34:57 - Precision@3: 14.33%
+2025-11-16 19:34:57 - Precision@5: 11.08%
+2025-11-16 19:34:57 - Precision@10: 7.42%
+2025-11-16 19:34:57 - Recall@1: 11.61%
+2025-11-16 19:34:57 - Recall@3: 20.61%
+2025-11-16 19:34:57 - Recall@5: 25.78%
+2025-11-16 19:34:57 - Recall@10: 33.89%
+2025-11-16 19:34:57 - MRR@10: 0.3031
+2025-11-16 19:34:57 - NDCG@10: 0.2590
+2025-11-16 19:34:57 - MAP@100: 0.2099
+2025-11-16 19:34:57 - Save model to /home/aiml_user/vishnu/sptar_v1/zhiyuan/retriever/dpr/train/output/llama_7b_100k_fixed_v3_best_llama_prompt_2_filtered_70/50/bert-large-uncased-v1-fiqa

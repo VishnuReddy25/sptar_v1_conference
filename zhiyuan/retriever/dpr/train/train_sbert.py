@@ -51,7 +51,8 @@ parser.add_argument('--product', required=False, default="cosine", type=str)
 parser.add_argument('--exp_name', required=False, default="no_aug", type=str)
 args = parser.parse_args()
 #### Provide model save path
-model_name = "bert-base-uncased" 
+# model_name = "bert-base-uncased" 
+model_name = "bert-large-uncased" 
 model_save_path = os.path.join(pathlib.Path(__file__).parent.absolute(), "output", args.exp_name, str(args.train_num), "{}-v1-{}".format(model_name, args.dataset_name))
 os.makedirs(model_save_path, exist_ok=True)
 #### Just some code to print debug information to stdout
@@ -82,7 +83,7 @@ model = SentenceTransformer(modules=[word_embedding_model, pooling_model], devic
 #### Or provide pretrained sentence-transformer model
 # model = SentenceTransformer("msmarco-distilbert-base-v3")
 print(device)
-retriever = TrainRetriever(model=model, batch_size=16)
+retriever = TrainRetriever(model=model, batch_size=32)
 
 #### Prepare training samples
 train_samples = retriever.load_train(corpus, queries, qrels)
@@ -113,6 +114,7 @@ evaluation_steps = -1
 warmup_steps = int(len(train_samples) * num_epochs / retriever.batch_size * 0.1)
 
 print(">>> Starting training now...", flush=True)
+print(model_name)
 retriever.fit(train_objectives=[(train_dataloader, train_loss)], 
                 evaluator=ir_evaluator, 
                 epochs=num_epochs,
