@@ -158,3 +158,6 @@ mlrunszhiyuan/datasets/
 zhiyuan/datasets/
 
 *.safetensors
+**/*.safetensors
+
+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
