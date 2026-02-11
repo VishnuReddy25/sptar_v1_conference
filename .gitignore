@@ -156,3 +156,5 @@ __pycache__/
 zhiyuan/retriever/col_bert/data/
 mlrunszhiyuan/datasets/
 zhiyuan/datasets/
+
+*.safetensors
