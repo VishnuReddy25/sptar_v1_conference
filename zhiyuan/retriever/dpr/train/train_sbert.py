@@ -127,18 +127,17 @@ retriever.fit(train_objectives=[(train_dataloader, train_loss)],
 )
 '''
 
-"""
-Train a Bi-Encoder (DPR-style) with optional quality-weighted weak supervision.
 
-Adds support for:
-- quality_score-based weighting
-- fallback to normal training for gold data
+
+"""
+Train a Bi-Encoder (DPR-style) with quality-weighted weak supervision.
+Correct implementation for SentenceTransformers.
 """
 
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset
-from sentence_transformers import losses, models, SentenceTransformer, InputExample
+from sentence_transformers import models, SentenceTransformer, InputExample
 from beir import util
 from beir.datasets.data_loader import GenericDataLoader
 from beir.retrieval.train import TrainRetriever
@@ -146,7 +145,6 @@ import pathlib, os
 import logging
 import argparse
 from os.path import join, dirname, abspath
-import math
 import sys
 
 print("Started", flush=True)
@@ -255,6 +253,7 @@ dev_corpus, dev_queries, dev_qrels = GenericDataLoader(
 ############################################
 word_embedding_model = models.Transformer(model_name, max_seq_length=350)
 pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension())
+
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 model = SentenceTransformer(
@@ -265,38 +264,35 @@ model = SentenceTransformer(
 retriever = TrainRetriever(model=model, batch_size=32)
 
 ############################################
-# CUSTOM DATASET WITH QUALITY WEIGHTS
+# DATASET WITH QUALITY WEIGHTS
 ############################################
 class WeightedTrainDataset(Dataset):
     def __init__(self, corpus, queries, qrels):
         self.samples = []
         for qid in qrels:
             for pid in qrels[qid]:
-                quality = qrels[qid][pid]
-                self.samples.append({
-                    "query": queries[qid],
-                    "doc": corpus[pid]["text"],
-                    "quality": float(quality)
-                })
+                quality = float(qrels[qid][pid])
+                self.samples.append(
+                    InputExample(
+                        texts=[queries[qid], corpus[pid]["text"]],
+                        label=quality  # quality_score goes here
+                    )
+                )
 
     def __len__(self):
         return len(self.samples)
 
     def __getitem__(self, idx):
-        sample = self.samples[idx]
-        return InputExample(
-            texts=[sample["query"], sample["doc"]],
-            label=sample["quality"]
-        )
+        return self.samples[idx]
 
 ############################################
-# LOAD TRAIN SAMPLES
+# LOAD TRAIN DATA
 ############################################
 train_dataset = WeightedTrainDataset(corpus, queries, qrels)
 train_dataloader = retriever.prepare_train(train_dataset, shuffle=True)
 
 ############################################
-# CUSTOM WEIGHTED LOSS
+# CORRECT WEIGHTED LOSS
 ############################################
 class WeightedMultipleNegativesRankingLoss(nn.Module):
     def __init__(self, model, similarity_fct=util.cos_sim):
@@ -305,17 +301,29 @@ class WeightedMultipleNegativesRankingLoss(nn.Module):
         self.similarity_fct = similarity_fct
         self.cross_entropy = nn.CrossEntropyLoss(reduction='none')
 
-    def forward(self, sentence_features, labels=None):
-        embeddings = [self.model(sentence_feature)['sentence_embedding']
-                      for sentence_feature in sentence_features]
+    def forward(self, sentence_features, labels):
+        # Compute embeddings
+        embeddings = [
+            self.model(sentence_feature)['sentence_embedding']
+            for sentence_feature in sentence_features
+        ]
 
+        # Similarity matrix
         scores = self.similarity_fct(embeddings[0], embeddings[1])
-        labels = torch.arange(scores.size(0)).to(scores.device)
 
-        per_sample_loss = self.cross_entropy(scores, labels)
+        # Standard MNR diagonal targets
+        target = torch.arange(scores.size(0)).to(scores.device)
 
+        # Per-sample CE loss
+        per_sample_loss = self.cross_entropy(scores, target)
+
+        # labels = quality scores from InputExample.label
         if labels is not None:
-            weights = sentence_features[0]['label'].to(scores.device)
+            weights = labels.float().to(scores.device)
+
+            # Normalize weights for stability
+            weights = weights / (weights.mean() + 1e-8)
+
             loss = (per_sample_loss * weights).mean()
         else:
             loss = per_sample_loss.mean()
@@ -327,7 +335,7 @@ class WeightedMultipleNegativesRankingLoss(nn.Module):
 ############################################
 if args.product == "cosine":
     train_loss = WeightedMultipleNegativesRankingLoss(model)
-elif args.product == "dot":
+else:
     train_loss = WeightedMultipleNegativesRankingLoss(
         model,
         similarity_fct=util.dot_score
